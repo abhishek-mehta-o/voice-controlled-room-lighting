@@ -1,101 +1,209 @@
+<div align="center">
+
 # Voice Controlled Room Lighting
+
+### SURGE099 Research Project  
+### Alexa Equivalent for Smart Home Control
+
+**Abhishek Mehta**  
+B.Tech Electrical Engineering, IIT Delhi  
+Roll No: 2024EE30767
 
 ![SURGE](https://img.shields.io/badge/SURGE099-Research_Project-red)
 ![ESP32](https://img.shields.io/badge/ESP32-IoT-blue)
 ![Wit.ai](https://img.shields.io/badge/Wit.ai-NLP-green)
-![Arduino](https://img.shields.io/badge/Arduino-C%2B%2B-orange)
-![IIT Delhi](https://img.shields.io/badge/IIT%20Delhi-EE-maroon)
+![Arduino](https://img.shields.io/badge/Arduino-C++-orange)
+![Status](https://img.shields.io/badge/Status-In_Progress-yellow)
 
-
-A smart home lighting system that enables voice-based appliance control using ESP32, INMP441 microphone and Wit.ai.
+</div>
 
 ---
 
 ## Overview
 
-This project aims to build an Alexa-like voice assistant for controlling room lighting.
+This project aims to develop a voice-controlled smart lighting system that functions as a lightweight **Alexa-equivalent** for home automation.
 
-The system captures voice commands using an INMP441 digital microphone connected to an ESP32. Audio is transmitted over WiFi to Wit.ai for speech recognition and intent extraction. Based on the recognized command, the ESP32 controls a relay module to switch the room light ON or OFF.
+The system captures voice commands using an **INMP441 digital microphone** connected to an **ESP32**, transmits audio over Wi-Fi, performs speech recognition using **Wit.ai**, and controls room lighting via a relay module.
+
+The objective is to create an efficient, low-cost, and scalable embedded solution for voice-based smart home control.
 
 ---
 
-## Features
+# Features
 
-- Voice controlled light ON/OFF
-- ESP32 based IoT architecture
-- WiFi communication
+- Voice-controlled ON/OFF switching
+- Wi-Fi enabled communication
 - Cloud NLP using Wit.ai
-- Low power embedded implementation
+- Low-power ESP32 architecture
+- Relay-based appliance control
+- Extendable to multiple appliances
 
 ---
 
-## System Architecture
+# System Architecture
 
 ```text
-User Voice
-    ↓
-INMP441 Microphone
-    ↓
-ESP32
-    ↓ WiFi
-Wit.ai API
-    ↓ Intent
-ESP32
-    ↓
-Relay Module
-    ↓
-Room Lighting
+                User Voice
+                     │
+                     ▼
+         INMP441 Digital Microphone
+                     │
+                     ▼
+                  ESP32
+                     │
+               Wi-Fi Transfer
+                     │
+                     ▼
+                Wit.ai API
+          (Speech + Intent Recognition)
+                     │
+                     ▼
+                  ESP32
+                     │
+                     ▼
+              Relay Module
+                     │
+                     ▼
+              Room Lighting
 ```
 
 ---
 
-## Hardware Used
+# Motivation
 
-| Component | Purpose |
-|----------|---------|
-| ESP32 | Main controller |
-| INMP441 | Digital microphone |
-| Relay Module | AC load switching |
-| Wit.ai | Speech recognition |
+Commercial voice assistants such as Alexa and Google Assistant are powerful but expensive and privacy dependent.
+
+This project explores:
+
+- Low-cost alternatives
+- Embedded AI and IoT integration
+- Speech recognition pipelines
+- Smart home automation
+- Cloud vs Edge AI trade-offs
 
 ---
 
-## Platform Evaluation
+# Hardware Components
 
-The following platforms were evaluated:
+| Component | Function |
+|----------|---------|
+| ESP32 | Main microcontroller |
+| INMP441 | Digital I2S microphone |
+| Relay Module | Appliance switching |
+| Wit.ai | Speech recognition |
+| Wi-Fi | Cloud communication |
+
+---
+
+# Platform Evaluation
+
+The following platforms were evaluated before implementation:
 
 | Criteria | ESP32 | Raspberry Pi |
 |---------|------|--------------|
 | Power Consumption | Low | High |
-| WiFi/Bluetooth | Built-in | Built-in |
-| Boot Time | < 1 sec | ~30 sec |
+| Wi-Fi/Bluetooth | Built-in | Built-in |
+| Boot Time | <1 sec | ~30 sec |
+| Complexity | Lightweight | Overkill |
 | Cost | Low | Moderate |
 
-**ESP32 was selected due to its low power consumption and suitability for embedded IoT applications.**
+**ESP32 was selected due to its low power consumption, fast boot time and suitability for embedded IoT applications.**
 
 ---
 
-## Progress Report
+# Voice Processing Approaches
 
-Detailed progress report available here:
+Two approaches were explored:
 
-📄 [SURGE099 Progress Report](docs/SURGE099_Progress_Report.pdf)
+## 1. Local TinyML
+
+### Advantages
+
+- No internet dependency
+- Very low latency
+- Privacy preserving
+
+### Limitations
+
+- Fixed keywords only
+- Requires labelled datasets
+- Lower accuracy in noisy environments
+- Model training complexity
 
 ---
 
-## Future Work
+## 2. Cloud NLP (Selected)
 
-- Implement I2S audio capture firmware
-- Improve noise robustness
-- Add local TinyML keyword spotting
-- Support multiple appliances
-- Optimize latency
+### Advantages
+
+- Natural language understanding
+- High recognition accuracy
+- No on-device training
+- Easily extensible
+
+### Limitations
+
+- Requires Wi-Fi
+- Small network latency
+
+**Selected:** Wit.ai based cloud speech processing.
 
 ---
 
-## Author
+# Current Progress
+
+### Phase 1 — Hardware Fundamentals
+
+- Traffic Light System
+- Reaction Speed Game
+- LED Patterns and Sensor Interfacing
+
+### Phase 2 — Component Evaluation
+
+- ESP32 vs Raspberry Pi comparison
+- Microphone selection
+- Analog vs Digital audio analysis
+
+### Phase 3 — Voice Processing Architecture
+
+- TinyML feasibility study
+- Cloud NLP evaluation
+- Wit.ai integration planning
+
+### Phase 4 — System Design
+
+- End-to-end architecture finalized
+- Hardware stack finalized
+
+---
+
+# Next Steps
+
+- [ ] Implement I2S audio capture on ESP32
+- [ ] Integrate Wit.ai API
+- [ ] Build relay switching circuit
+- [ ] Perform end-to-end testing
+- [ ] Measure latency and accuracy
+- [ ] Improve noise robustness
+- [ ] Final demonstration
+
+---
+
+# Documentation
+
+Detailed 15-day progress report:
+
+[SURGE099 Progress Report](docs/SURGE099_Progress_Report.pdf)
+
+---
+
+# Author
 
 **Abhishek Mehta**
 
 B.Tech Electrical Engineering  
-IIT Delhi
+Indian Institute of Technology Delhi
+
+---
+
+### If you find this project interesting, feel free to ⭐ the repository!
